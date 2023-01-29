@@ -115,6 +115,10 @@
   padding: 0.2em;
 }
 
+#providers-label{
+  margin-top: 1em;
+}
+
 #biomarkers-select, #providers-select{
   width:100%;
   display: block;
