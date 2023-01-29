@@ -120,9 +120,10 @@ html_spans_for_biomarker_handles = function(biomarker_handles){
 html_for_product_handle = function(product_handle){
 
   var product = products[product_handle]
+  var provider = providers.find(prov => prov.url == product.provider_url)
 
   var ret = "<tr><td><a target='_blank' rel='noreferrer nofollow noopener external' referrerpolicy='no-referrer' " + 
-    "href='" + product.url + "'>" + product.name + "</a></td><td>" + format_price_pence(product.price_pence) + "</td></tr>"
+    "href='" + product.url + "'><i>" + product.name + "</i> by " + provider.name + "</a></td><td>" + format_price_pence(product.price_pence) + "</td></tr>"
 
   return(ret)
 }
@@ -342,8 +343,11 @@ function load_exchange_url(exchange_url) {
 
       providers.push(data.provider)
 
-      $("#providers-select").append('<option value="' + data.provider.url + '">' + data.provider.name + '</option>')
-      $("#providers-select").val($("#providers-select").val().concat(data.provider.url))
+      /*$("#providers-select").append('<option value="' + data.provider.url + '">' + data.provider.name + '</option>')
+      $("#providers-select").val($("#providers-select").val().concat(data.provider.url))*/
+      
+      $("#providers-select")[0].tomselect.addOption({value: data.provider.url, text: data.provider.name})
+      $("#providers-select")[0].tomselect.addItem(data.provider.url)
 
       data.products.forEach(prod => prod.provider_url = data.provider.url)
 
@@ -362,9 +366,13 @@ function load_biomarkers() {
       
       biomarkers = data
 
-      $("#biomarkers-select").append(
+      /*$("#biomarkers-select").append(
         ...data.map((e) => '<option value="'+ e.sctid + '">' + e.displayname + "</option>")
-      )
+      )*/
+
+      var bioselect = $("#biomarkers-select")[0].tomselect
+
+      biomarkers.forEach( b => bioselect.addOption({value: b.sctid, text: b.displayname}))
 
       const params = new Proxy(new URLSearchParams(window.location.search), {
           get: (searchParams, prop) => searchParams.get(prop),
@@ -372,7 +380,7 @@ function load_biomarkers() {
 
       if(params.biomarkers){
         var param_biomarkers = params.biomarkers.split("|").filter(k => biomarkers.map(b => b.sctid).includes(k))
-        $("#biomarkers-select").val(param_biomarkers)
+        bioselect.addItems(param_biomarkers)
       }
 
     }
@@ -394,6 +402,16 @@ $(function(){
     }
 
   }
+
+  new TomSelect("#biomarkers-select", {
+    plugins: ['remove_button'],
+    onItemAdd: function(){this.setTextboxValue(''); this.refreshOptions(false)}
+  })
+  
+  new TomSelect("#providers-select", {
+    plugins: ['remove_button'],
+    onItemAdd: function(){this.setTextboxValue(''); this.refreshOptions(false)}
+  })
 
   load_biomarkers()
   load_exchange_url("https://raw.githubusercontent.com/stupidpupil/melio_scraper/output/exchange.json")
