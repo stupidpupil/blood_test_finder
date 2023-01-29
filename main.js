@@ -24,6 +24,12 @@ function lp_variables_for_biomarkers(chosen_biomarkers, options){
       new_var.forbidden_url = 0
     }
 
+    if(options.forbidden_provider_urls.includes(prod.provider_url)){
+      new_var.forbidden_provider_url = 1
+    }else{
+      new_var.forbidden_provider_url = 0
+    }
+
     chosen_biomarkers.forEach(b => new_var[b] = (prod.biomarkers.includes(b) ? 1 : 0))
 
     variables[i] = new_var
@@ -40,7 +46,9 @@ function lp_constraints_for_biomarkers(chosen_biomarkers, options){
 
   constraints.wrong_sampling_procedure = {"max": 0}
   constraints.forbidden_url = {"max": 0}
+  constraints.forbidden_provider_url = {"max": 0}
   
+
 
   return(constraints)
 }
@@ -52,7 +60,8 @@ lp_model_for_biomarkers = function(chosen_biomarkers, options){
     venous_penalty_pence: 0, /* This is *in addition* to venous_cost_pence */
     turnaround_day_penalty_pence: 0, /* Note that this accumulates for multiple tests, so doesn't work quite as you'd hope */
     require_venous: false,
-    forbidden_product_urls: []
+    forbidden_product_urls: [],
+    forbidden_provider_urls: []
   }
 
   if(options){
@@ -173,6 +182,8 @@ resolve = function(){
     return;
   }
 
+  var forbidden_provider_urls = providers.filter(prov => !($("#providers-select").val().includes(prov.url))).map(prov => prov.url)
+
   var result
 
   results = []
@@ -192,10 +203,14 @@ resolve = function(){
     First attempt, we just try to find the cheapest
   */
 
-  var model = lp_model_for_biomarkers(chosen_biomarkers, {require_venous: require_venous})
+  var model = lp_model_for_biomarkers(chosen_biomarkers, {require_venous: require_venous, forbidden_provider_urls: forbidden_provider_urls})
   result = solver.Solve(model)
   result.suggested_test_handles = suggested_test_handles_for_result(result)
-  results.push(result)
+
+  if(result.feasible && !find_matching_result(result)){
+    results.push(result)
+  }
+
 
   /* 
     We try to find an alternative with a completely different set of tests
@@ -203,7 +218,7 @@ resolve = function(){
 
   var forbidden_product_urls = result.suggested_test_handles.map((i) => products[i].url)
   
-  model = lp_model_for_biomarkers(chosen_biomarkers, {require_venous: require_venous, forbidden_product_urls: forbidden_product_urls})
+  model = lp_model_for_biomarkers(chosen_biomarkers, {require_venous: require_venous, forbidden_product_urls: forbidden_product_urls, forbidden_provider_urls: forbidden_provider_urls})
   result = solver.Solve(model)
   result.suggested_test_handles = suggested_test_handles_for_result(result)
 
@@ -213,7 +228,7 @@ resolve = function(){
 
   /* We try to avoid multiple tests and venous tests */
 
-  model = lp_model_for_biomarkers(chosen_biomarkers, {require_venous: require_venous, every_test_penalty_pence: 500, venous_penalty_pence: 1500})
+  model = lp_model_for_biomarkers(chosen_biomarkers, {require_venous: require_venous, every_test_penalty_pence: 500, venous_penalty_pence: 1500, forbidden_provider_urls:forbidden_provider_urls})
   result = solver.Solve(model)
   result.suggested_test_handles = suggested_test_handles_for_result(result)
 
@@ -223,7 +238,7 @@ resolve = function(){
 
   /* We *really* try to avoid multiple tests and venous tests */
 
-  model = lp_model_for_biomarkers(chosen_biomarkers, {require_venous: require_venous, every_test_penalty_pence: 2000, venous_penalty_pence: 6000})
+  model = lp_model_for_biomarkers(chosen_biomarkers, {require_venous: require_venous, every_test_penalty_pence: 2000, venous_penalty_pence: 6000, forbidden_provider_urls: forbidden_provider_urls})
   result = solver.Solve(model)
   result.suggested_test_handles = suggested_test_handles_for_result(result)
 
@@ -233,7 +248,7 @@ resolve = function(){
 
   /* Some people might actually prefer a venous blood draw, particularly if turnaround is quicker*/
 
-  model = lp_model_for_biomarkers(chosen_biomarkers, {require_venous: require_venous, every_test_penalty_pence: 5000, venous_penalty_pence: -3500})
+  model = lp_model_for_biomarkers(chosen_biomarkers, {require_venous: require_venous, every_test_penalty_pence: 5000, venous_penalty_pence: -3500, forbidden_provider_urls: forbidden_provider_urls})
   result = solver.Solve(model)
   result.suggested_test_handles = suggested_test_handles_for_result(result)
 
@@ -245,7 +260,7 @@ resolve = function(){
 
   var chosen_plus_suggested_biomarkers = [...chosen_biomarkers, '1018251000000107', '1000731000000107', '1022191000000100']
 
-  model = lp_model_for_biomarkers(chosen_plus_suggested_biomarkers, {require_venous: require_venous})
+  model = lp_model_for_biomarkers(chosen_plus_suggested_biomarkers, {require_venous: require_venous, forbidden_provider_urls:forbidden_provider_urls})
   result = solver.Solve(model)
   result.suggested_test_handles = suggested_test_handles_for_result(result)
 
@@ -258,11 +273,11 @@ resolve = function(){
 
   if(['997161000000108', '1010521000000102'].some(e => chosen_biomarkers.includes(e))){
     chosen_plus_suggested_biomarkers.push('999661000000105')
-    model = lp_model_for_biomarkers(chosen_plus_suggested_biomarkers, {require_venous: require_venous})
+    model = lp_model_for_biomarkers(chosen_plus_suggested_biomarkers, {require_venous: require_venous, forbidden_provider_urls:forbidden_provider_urls})
     result = solver.Solve(model)
     result.suggested_test_handles = suggested_test_handles_for_result(result)
 
-    if(!find_matching_result(result)){
+    if(result.feasible && !find_matching_result(result)){
       results.push(result)
     }
   }
@@ -271,7 +286,7 @@ resolve = function(){
 
   if(['1010521000000102'].some(e => chosen_biomarkers.includes(e))){
     chosen_plus_suggested_biomarkers.push('1031181000000107')
-    model = lp_model_for_biomarkers(chosen_plus_suggested_biomarkers, {require_venous: require_venous})
+    model = lp_model_for_biomarkers(chosen_plus_suggested_biomarkers, {require_venous: require_venous, forbidden_provider_urls:forbidden_provider_urls})
     result = solver.Solve(model)
     result.suggested_test_handles = suggested_test_handles_for_result(result)
 
@@ -284,6 +299,8 @@ resolve = function(){
     $("#outputs").append("<p>Something went wrong!</p>")
     return;
   }
+
+  console.log(results)
 
   biomarkers_for_results = results.map( 
     r => r.suggested_test_handles.map( i => products[i] ).map( r => r.biomarkers ).
@@ -315,13 +332,18 @@ resolve = function(){
 
 
 function load_exchange_url(exchange_url) {
-  fetch(exchange_url)
+  var datestamp = (new Date).toISOString().substring(0,10) + "v2";
+
+  fetch(exchange_url + "?" + datestamp)
     .then((response) => response.json())
     .then(function(data){
       //TODO: Reject if Last Updated is too old
       //TODO: Add to providers select
 
       providers.push(data.provider)
+
+      $("#providers-select").append('<option value="' + data.provider.url + '">' + data.provider.name + '</option>')
+      $("#providers-select").val($("#providers-select").val().concat(data.provider.url))
 
       data.products.forEach(prod => prod.provider_url = data.provider.url)
 
@@ -380,6 +402,7 @@ $(function(){
 
   $("#biomarkers-select").on("change", resolve)
   $("#require-venous-checkbox").on("change", resolve)
+  $("#providers-select").on("change", resolve)
 
   resolve()
 })
