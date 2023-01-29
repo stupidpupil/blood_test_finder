@@ -1,4 +1,5 @@
 var products = [];
+var providers = [];
 var biomarkers;
 
 function lp_variables_for_biomarkers(chosen_biomarkers, options){
@@ -319,6 +320,11 @@ function load_exchange_url(exchange_url) {
     .then(function(data){
       //TODO: Reject if Last Updated is too old
       //TODO: Add to providers select
+
+      providers.push(data.provider)
+
+      data.products.forEach(prod => prod.provider_url = data.provider.url)
+
       products.push(...data.products)
 
       resolve()
