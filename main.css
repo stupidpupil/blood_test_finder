@@ -1,0 +1,125 @@
+#main{
+  display: grid;
+  justify-content: center;
+  align-content: center;
+
+  grid-template-columns: repeat(1, 100%);
+  grid-template-rows: auto;
+  grid-template-areas:
+      "inputs"
+      "outputs"
+      "info";
+  gap: 0.5em;
+}
+
+
+@media (min-width: 50em) {
+  #main{
+    grid-template-columns: repeat(1, 50em);
+    grid-template-rows: auto;
+    gap: 1em;
+  }
+}
+
+
+
+@media (min-width: 80em) {
+  #main{
+    grid-template-columns: repeat(3, 25em);
+    grid-template-rows: auto minmax(3em, 1fr);
+    grid-template-areas:
+      "inputs outputs outputs"
+      "info outputs outputs";
+    gap: 1em;
+  }
+}
+
+#inputs{
+  grid-area: inputs;
+}
+
+#info{
+  grid-area: info;
+}
+
+#outputs{
+  grid-area: outputs;
+}
+
+
+.result .additional-biomarkers, .result .missing-biomarkers{
+  font-size: 0.8em;
+  margin: 0.5em;
+
+}
+#common-biomarkers{
+  padding: 0.5em;
+  margin: 0.5em;
+  color: #333;
+  font-size: 0.8em;
+}
+
+.biomarker{
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  margin-bottom: 0.15em;
+  border-radius: 0.2em;
+  background-color: #ddd;
+}
+
+.result{
+  background-color: #fafafa;
+  padding: 0.5em;
+  margin: 0.5em;
+  border-radius: 0.2em;
+  border: 1px solid #bbb;
+}
+
+.suggested_tests{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.suggested_tests td a{
+  text-decoration: none;
+}
+
+.suggested_tests th{
+  font-size: 0.8em;
+  color: #555;
+  font-weight: bold;
+}
+
+.suggested_tests thead tr th:nth-child(2){
+  width: 12ch;
+}
+
+.suggested_tests th, .suggested_tests td{
+  padding: 0.3em 0.3em;
+  text-align: right;
+}
+
+.not_venous_only{
+  color: #aaa;
+}
+
+.suggested_tests .total-row{
+  font-style: italic;
+  border-top: 1px #aaa solid;
+}
+
+#biomarkers-label, #providers-label{
+  display: block;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.2em;
+}
+
+#biomarkers-select, #providers-select{
+  width:100%;
+  display: block;
+}
+
+#inputs input[type=checkbox]{
+  margin: 1em 0 0 0.5em;
+}

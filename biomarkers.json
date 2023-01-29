@@ -1,0 +1,126 @@
+[
+  {
+    "sctid": "1000731000000107",
+    "displayname": "Creatinine"
+  },
+  {
+    "sctid": "1018251000000107",
+    "displayname": "Alanine Aminotransferase (ALT)"
+  },
+  {
+    "sctid": "1000861000000106",
+    "displayname": "Gamma-Glutamyl Transferase (GGT)"
+  },
+  {
+    "sctid": "1000621000000104",
+    "displayname": "Alkaline Phosphatase (ALP)"
+  },
+  {
+    "sctid": "999691000000104",
+    "displayname": "Bilirubin"
+  },
+  {
+    "sctid": "1031181000000107",
+    "displayname": "Vitamin D"
+  },
+  {
+    "sctid": "993391000000108",
+    "displayname": "Active Vitamin B12"
+  },
+  {
+    "sctid": "1010521000000102",
+    "displayname": "Oestradiol (E2)"
+  },
+  {
+    "sctid": "1023191000000105",
+    "displayname": "Follicle-Stimulating Hormone (FSH)"
+  },
+  {
+    "sctid": "1023161000000104",
+    "displayname": "Luteinising Hormone (LH)"
+  },
+  {
+    "sctid": "997161000000108",
+    "displayname": "Testosterone (T)"
+  },
+  {
+    "sctid": "1023211000000109",
+    "displayname": "Prolactin"
+  },
+  {
+    "sctid": "1003671000000109",
+    "displayname": "HbA1c"
+  },
+  {
+    "sctid": "997131000000103",
+    "displayname": "Estriol (E3)"
+  },
+  {
+    "sctid": "993411000000108",
+    "displayname": "Folate"
+  },
+  {
+    "sctid": "1016961000000104",
+    "displayname": "Free Triiodothyronine (T3)"
+  },
+  {
+    "sctid": "1016971000000106",
+    "displayname": "Free Thyroxine (T4)"
+  },
+  {
+    "sctid": "1022791000000101",
+    "displayname": "Thyroid Stimulating Hormone (TSH)"
+  },
+  {
+    "sctid": "1022191000000100",
+    "displayname": "LDL Cholesterol"
+  },
+  {
+    "sctid": "994351000000103",
+    "displayname": "Total Cholesterol"
+  },
+  {
+    "sctid": "1006191000000106",
+    "displayname": "Non-HDL Cholesterol"
+  },
+  {
+    "sctid": "1022451000000103",
+    "displayname": "Red blood cell count (RBC)"
+  },
+  {
+    "sctid": "993441000000109",
+    "displayname": "Reticulocyte count"
+  },
+  {
+    "sctid": "1022541000000102",
+    "displayname": "White cell count (WBC)"
+  },
+  {
+    "sctid": "1108041000000107",
+    "displayname": "Platelet count"
+  },
+  {
+    "sctid": "1013781000000100",
+    "displayname": "Dihydrotestosterone (DHT)"
+  },
+  {
+    "sctid": "1000661000000107",
+    "displayname": "Sodium (Na)"
+  },
+  {
+    "sctid": "1028281000000106",
+    "displayname": "Urea"
+  },
+  {
+    "sctid": "1000821000000103",
+    "displayname": "Albumin"
+  },
+  {
+    "sctid": "999661000000105",
+    "displayname": "Sex Hormone Binding Globulin (SHBG)"
+  },
+  {
+    "sctid": "1010611000000107",
+    "displayname": "Glucose"
+  }
+]
