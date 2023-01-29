@@ -16,6 +16,10 @@
     "displayname": "Alkaline Phosphatase (ALP)"
   },
   {
+    "sctid": "1000881000000102",
+    "displayname": "Aspartate Aminotransferase(AST)"
+  },
+  {
     "sctid": "999691000000104",
     "displayname": "Bilirubin"
   },
@@ -122,5 +126,9 @@
   {
     "sctid": "1010611000000107",
     "displayname": "Glucose"
+  },
+  {
+    "sctid": "1000381000000105",
+    "displayname": "Prostate Specific Antigen (PSA)"
   }
 ]
