@@ -338,8 +338,13 @@ function load_exchange_url(exchange_url) {
   fetch(exchange_url + "?" + datestamp)
     .then((response) => response.json())
     .then(function(data){
-      //TODO: Reject if Last Updated is too old
-      //TODO: Add to providers select
+      
+      var last_updated = Date.parse(data.last_updated)
+      var max_out_of_date_milliseconds =  2.592e+8 //3 days
+
+      if((Date.now() - last_updated) > max_out_of_date_milliseconds){
+        return
+      }
 
       providers.push(data.provider)
 
@@ -407,7 +412,7 @@ $(function(){
     plugins: ['remove_button'],
     onItemAdd: function(){this.setTextboxValue(''); this.refreshOptions(false)}
   })
-  
+
   new TomSelect("#providers-select", {
     plugins: ['remove_button'],
     onItemAdd: function(){this.setTextboxValue(''); this.refreshOptions(false)}
