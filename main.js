@@ -331,6 +331,16 @@ resolve = function(){
 
 }
 
+function add_provider(provider){
+  providers.push(provider)
+
+  /*$("#providers-select").append('<option value="' + provider.url + '">' + provider.name + '</option>')
+  $("#providers-select").val($("#providers-select").val().concat(provider.url))*/
+  
+  $("#providers-select")[0].tomselect.addOption({value: provider.url, text: provider.name})
+  $("#providers-select")[0].tomselect.addItem(provider.url)
+}
+
 
 function load_exchange_url(exchange_url) {
   var datestamp = (new Date).toISOString().substring(0,10) + "v2";
@@ -346,13 +356,7 @@ function load_exchange_url(exchange_url) {
         return
       }
 
-      providers.push(data.provider)
-
-      /*$("#providers-select").append('<option value="' + data.provider.url + '">' + data.provider.name + '</option>')
-      $("#providers-select").val($("#providers-select").val().concat(data.provider.url))*/
-      
-      $("#providers-select")[0].tomselect.addOption({value: data.provider.url, text: data.provider.name})
-      $("#providers-select")[0].tomselect.addItem(data.provider.url)
+      add_provider(data.provider)
 
       data.products.forEach(prod => prod.provider_url = data.provider.url)
 
@@ -419,9 +423,9 @@ $(function(){
   })
 
   load_biomarkers()
-  load_exchange_url("https://raw.githubusercontent.com/stupidpupil/melio_scraper/output/exchange.json")
-  load_exchange_url("https://raw.githubusercontent.com/stupidpupil/forth_scraper/output/exchange.json")
-  load_exchange_url("https://raw.githubusercontent.com/stupidpupil/medichecks_scraper/output/exchange.json")
+  load_exchange_url("https://stupidpupil.github.io/melio_scraper/exchange.json")
+  load_exchange_url("https://stupidpupil.github.io/forth_scraper/exchange.json")
+  load_exchange_url("https://stupidpupil.github.io/medichecks_scraper/exchange.json")
 
   $("#biomarkers-select").on("change", resolve)
   $("#require-venous-checkbox").on("change", resolve)
