@@ -183,7 +183,17 @@ resolve = function(){
     return;
   }
 
+
+  var supported_provider_urls = providers.filter(prov => ($("#providers-select").val().includes(prov.url))).map(prov => prov.url)
   var forbidden_provider_urls = providers.filter(prov => !($("#providers-select").val().includes(prov.url))).map(prov => prov.url)
+
+  //HACK - Add and remove Forth Bespoke tests
+  var forth_bespoke_provider_url = "https://shop.forthwithlife.co.uk/bespoke-test/0"
+  products = products.filter((p) => p.provider_url != forth_bespoke_provider_url)
+
+  if(supported_provider_urls.includes(forth_bespoke_provider_url)){
+    products = products.concat(forth_bespoke_tests_for_biomarkers(chosen_biomarkers))
+  }
 
   var result
 
