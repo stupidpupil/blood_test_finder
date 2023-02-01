@@ -1,150 +1,242 @@
 [
   {
+    "sctid": "1000861000000106",
+    "displayname": "Gamma-Glutamyl Transferase (GGT)",
+    "synonyms": "Liver",
+    "score": 1.2
+  },
+  {
     "sctid": "1000731000000107",
-    "displayname": "Creatinine"
+    "displayname": "Creatinine",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "1018251000000107",
-    "displayname": "Alanine Aminotransferase (ALT)"
-  },
-  {
-    "sctid": "1000861000000106",
-    "displayname": "Gamma-Glutamyl Transferase (GGT)"
+    "displayname": "Alanine Aminotransferase (ALT)",
+    "synonyms": "Liver",
+    "score": 1
   },
   {
     "sctid": "1000621000000104",
-    "displayname": "Alkaline Phosphatase (ALP)"
-  },
-  {
-    "sctid": "1000881000000102",
-    "displayname": "Aspartate Aminotransferase (AST)"
+    "displayname": "Alkaline Phosphatase (ALP)",
+    "synonyms": "Liver",
+    "score": 1
   },
   {
     "sctid": "999691000000104",
-    "displayname": "Bilirubin"
+    "displayname": "Bilirubin (BR)",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "1031181000000107",
-    "displayname": "Vitamin D"
+    "displayname": "Vitamin D",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "993391000000108",
-    "displayname": "Active Vitamin B12"
+    "displayname": "Active Vitamin B12",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "1010521000000102",
-    "displayname": "Oestradiol (E2)"
+    "displayname": "Oestradiol (E2)",
+    "synonyms": "Estrogen",
+    "score": 1
   },
   {
     "sctid": "1023191000000105",
-    "displayname": "Follicle-Stimulating Hormone (FSH)"
+    "displayname": "Follicle-Stimulating Hormone (FSH)",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "1023161000000104",
-    "displayname": "Luteinising Hormone (LH)"
+    "displayname": "Luteinising Hormone (LH)",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "997161000000108",
-    "displayname": "Testosterone (T)"
+    "displayname": "Testosterone (T)",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "1023211000000109",
-    "displayname": "Prolactin"
+    "displayname": "Prolactin",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "1003671000000109",
-    "displayname": "HbA1c"
-  },
-  {
-    "sctid": "997131000000103",
-    "displayname": "Estriol (E3)"
+    "displayname": "Haemoglobin A1c (HbA1c)",
+    "synonyms": "Hemoglobin A1c blood sugar glucose",
+    "score": 1
   },
   {
     "sctid": "993411000000108",
-    "displayname": "Folate"
+    "displayname": "Folate",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "1016961000000104",
-    "displayname": "Free Triiodothyronine (T3)"
+    "displayname": "Free Triiodothyronine (T3)",
+    "synonyms": "Thyroid",
+    "score": 1
   },
   {
     "sctid": "1016971000000106",
-    "displayname": "Free Thyroxine (T4)"
+    "displayname": "Free Thyroxine (T4)",
+    "synonyms": "Thyroid",
+    "score": 1
   },
   {
     "sctid": "1022791000000101",
-    "displayname": "Thyroid Stimulating Hormone (TSH)"
+    "displayname": "Thyroid Stimulating Hormone (TSH)",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "1022191000000100",
-    "displayname": "LDL Cholesterol"
+    "displayname": "LDL Cholesterol",
+    "synonyms": "Low density lipoprotein",
+    "score": 1
   },
   {
     "sctid": "994351000000103",
-    "displayname": "Total Cholesterol"
+    "displayname": "Total Cholesterol",
+    "synonyms": "lipoprotein",
+    "score": 1
   },
   {
     "sctid": "1006191000000106",
-    "displayname": "Non-HDL Cholesterol"
+    "displayname": "Non-HDL Cholesterol",
+    "synonyms": "High density lipoprotein",
+    "score": 1
   },
   {
     "sctid": "1022451000000103",
-    "displayname": "Red blood cell count (RBC)"
+    "displayname": "Red blood cell count (RBC)",
+    "synonyms": "Full blood count (FBC)",
+    "score": 1
   },
   {
     "sctid": "993441000000109",
-    "displayname": "Reticulocyte count"
+    "displayname": "Reticulocyte count",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "1022541000000102",
-    "displayname": "White cell count (WBC)"
+    "displayname": "White cell count (WBC)",
+    "synonyms": "Full blood count (FBC)",
+    "score": 1
   },
   {
     "sctid": "1108041000000107",
-    "displayname": "Platelet count"
-  },
-  {
-    "sctid": "1013781000000100",
-    "displayname": "Dihydrotestosterone (DHT)"
+    "displayname": "Platelet count",
+    "synonyms": "Full blood count (FBC)",
+    "score": 1
   },
   {
     "sctid": "1000661000000107",
-    "displayname": "Sodium (Na)"
+    "displayname": "Sodium (Na)",
+    "synonyms": "Salt",
+    "score": 1
   },
   {
     "sctid": "1028281000000106",
-    "displayname": "Urea"
+    "displayname": "Urea",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "1000821000000103",
-    "displayname": "Albumin"
+    "displayname": "Albumin",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "999661000000105",
-    "displayname": "Sex Hormone Binding Globulin (SHBG)"
+    "displayname": "Sex Hormone Binding Globulin (SHBG)",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "1010611000000107",
-    "displayname": "Glucose"
+    "displayname": "Glucose",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "1000381000000105",
-    "displayname": "Prostate Specific Antigen (PSA)"
-  },
-  {
-    "sctid": "1001231000000108",
-    "displayname": "Globulin"
+    "displayname": "Prostate Specific Antigen (PSA)",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "993381000000106",
-    "displayname": "Ferritin"
+    "displayname": "Ferritin",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "1005691000000109",
-    "displayname": "Triglycerides"
+    "displayname": "Triglycerides",
+    "synonyms": "",
+    "score": 1
   },
   {
     "sctid": "53661000237108",
-    "displayname": "High-sensitivity C-Reactive Protein (hs-CRP)"
+    "displayname": "High-sensitivity C-Reactive Protein (hs-CRP)",
+    "synonyms": "",
+    "score": 1
+  },
+  {
+    "sctid": "1028751000000107",
+    "displayname": "Cortisol (9am)",
+    "synonyms": "",
+    "score": 1
+  },
+  {
+    "sctid": "1009061000000108",
+    "displayname": "Uric acid",
+    "synonyms": "",
+    "score": 1
+  },
+  {
+    "sctid": "1001371000000100",
+    "displayname": "C-Reactive Protein (CRP)",
+    "synonyms": "",
+    "score": 1
+  },
+  {
+    "sctid": "1013781000000100",
+    "displayname": "Dihydrotestosterone (DHT)",
+    "synonyms": "",
+    "score": 0.5
+  },
+  {
+    "sctid": "1001231000000108",
+    "displayname": "Globulin",
+    "synonyms": "",
+    "score": 0.5
+  },
+  {
+    "sctid": "1000881000000102",
+    "displayname": "Aspartate Aminotransferase (AST)",
+    "synonyms": "Liver",
+    "score": 0.1
+  },
+  {
+    "sctid": "997131000000103",
+    "displayname": "Estriol (E3)",
+    "synonyms": "Estrogen",
+    "score": 0.1
   }
 ]

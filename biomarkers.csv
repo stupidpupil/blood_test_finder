@@ -1,38 +1,41 @@
-sctid,displayname
-1000731000000107,Creatinine
-1018251000000107,Alanine Aminotransferase (ALT)
-1000861000000106,Gamma-Glutamyl Transferase (GGT)
-1000621000000104,Alkaline Phosphatase (ALP) 
-1000881000000102,Aspartate Aminotransferase (AST)
-999691000000104,Bilirubin
-1031181000000107,Vitamin D
-993391000000108,Active Vitamin B12
-1010521000000102,Oestradiol (E2)
-1023191000000105,Follicle-Stimulating Hormone (FSH)
-1023161000000104,Luteinising Hormone (LH)
-997161000000108,Testosterone (T)
-1023211000000109,Prolactin
-1003671000000109,HbA1c
-997131000000103,Estriol (E3)
-993411000000108,Folate
-1016961000000104,Free Triiodothyronine (T3) 
-1016971000000106,Free Thyroxine (T4)
-1022791000000101,Thyroid Stimulating Hormone (TSH)
-1022191000000100,LDL Cholesterol
-994351000000103,Total Cholesterol
-1006191000000106,Non-HDL Cholesterol
-1022451000000103,Red blood cell count (RBC)
-993441000000109,Reticulocyte count
-1022541000000102,White cell count (WBC)
-1108041000000107,Platelet count
-1013781000000100,Dihydrotestosterone (DHT)
-1000661000000107,Sodium (Na)
-1028281000000106,Urea
-1000821000000103,Albumin
-999661000000105,Sex Hormone Binding Globulin (SHBG)
-1010611000000107,Glucose
-1000381000000105,Prostate Specific Antigen (PSA)
-1001231000000108,Globulin
-993381000000106,Ferritin
-1005691000000109,Triglycerides
-53661000237108,High-sensitivity C-Reactive Protein (hs-CRP)
+sctid,displayname,synonyms,score
+1000731000000107,Creatinine,,
+1018251000000107,Alanine Aminotransferase (ALT),Liver,
+1000861000000106,Gamma-Glutamyl Transferase (GGT),Liver,1.2
+1000621000000104,Alkaline Phosphatase (ALP),Liver,
+1000881000000102,Aspartate Aminotransferase (AST),Liver,0.1
+999691000000104,Bilirubin (BR),,
+1031181000000107,Vitamin D,,
+993391000000108,Active Vitamin B12,,
+1010521000000102,Oestradiol (E2),Estrogen,
+1023191000000105,Follicle-Stimulating Hormone (FSH),,
+1023161000000104,Luteinising Hormone (LH),,
+997161000000108,Testosterone (T),,
+1023211000000109,Prolactin,,
+1003671000000109,Haemoglobin A1c (HbA1c),Hemoglobin A1c blood sugar glucose,
+997131000000103,Estriol (E3),Estrogen,0.1
+993411000000108,Folate,,
+1016961000000104,Free Triiodothyronine (T3),Thyroid,
+1016971000000106,Free Thyroxine (T4),Thyroid,
+1022791000000101,Thyroid Stimulating Hormone (TSH),,
+1022191000000100,LDL Cholesterol,Low density lipoprotein,
+994351000000103,Total Cholesterol,lipoprotein,
+1006191000000106,Non-HDL Cholesterol,High density lipoprotein,
+1022451000000103,Red blood cell count (RBC),Full blood count (FBC),
+993441000000109,Reticulocyte count,,
+1022541000000102,White cell count (WBC),Full blood count (FBC),
+1108041000000107,Platelet count,Full blood count (FBC),
+1013781000000100,Dihydrotestosterone (DHT),,0.5
+1000661000000107,Sodium (Na),Salt,
+1028281000000106,Urea,,
+1000821000000103,Albumin,,
+999661000000105,Sex Hormone Binding Globulin (SHBG),,
+1010611000000107,Glucose,,
+1000381000000105,Prostate Specific Antigen (PSA),,
+1001231000000108,Globulin,,0.5
+993381000000106,Ferritin,,
+1005691000000109,Triglycerides,,
+53661000237108,High-sensitivity C-Reactive Protein (hs-CRP),,
+1028751000000107,Cortisol (9am),,
+1009061000000108,Uric acid,,
+1001371000000100,C-Reactive Protein (CRP),,

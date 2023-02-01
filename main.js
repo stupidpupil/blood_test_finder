@@ -391,7 +391,7 @@ function load_biomarkers() {
 
       var bioselect = $("#biomarkers-select")[0].tomselect
 
-      biomarkers.forEach( b => bioselect.addOption({value: b.sctid, text: b.displayname}))
+      biomarkers.forEach( b => bioselect.addOption(b))
 
       const params = new Proxy(new URLSearchParams(window.location.search), {
           get: (searchParams, prop) => searchParams.get(prop),
@@ -424,6 +424,10 @@ $(function(){
 
   new TomSelect("#biomarkers-select", {
     plugins: ['remove_button'],
+    labelField: 'displayname',
+    valueField: 'sctid',
+    sortField: 'score',
+    searchField: [{field:'synonyms'}, {field:'displayname'}],
     onItemAdd: function(){this.setTextboxValue(''); this.refreshOptions(false)}
   })
 
