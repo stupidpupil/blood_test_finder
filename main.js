@@ -193,6 +193,10 @@ resolve = function(){
 
   if(supported_provider_urls.includes(forth_bespoke_provider_url)){
     products = products.concat(forth_bespoke_tests_for_biomarkers(chosen_biomarkers))
+
+    var potential_additional_biomarkers = ['1018251000000107', '1000731000000107', '1022191000000100', '999661000000105', '1031181000000107']
+    products = products.concat(forth_bespoke_tests_for_biomarkers(chosen_biomarkers.concat(potential_additional_biomarkers)))
+
   }
 
   //console.log(products)
