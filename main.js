@@ -195,6 +195,8 @@ resolve = function(){
     products = products.concat(forth_bespoke_tests_for_biomarkers(chosen_biomarkers))
   }
 
+  //console.log(products)
+
   var result
 
   results = []
@@ -311,7 +313,7 @@ resolve = function(){
     return;
   }
 
-  console.log(results)
+  //console.log(results)
 
   biomarkers_for_results = results.map( 
     r => r.suggested_test_handles.map( i => products[i] ).map( r => r.biomarkers ).
