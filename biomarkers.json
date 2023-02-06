@@ -235,8 +235,14 @@
   },
   {
     "sctid": "997131000000103",
-    "displayname": "Estriol (E3)",
-    "synonyms": "Estrogen",
+    "displayname": "Oestriol (E3)",
+    "synonyms": "Estriol Estrogen",
+    "score": 0.1
+  },
+  {
+    "sctid": "1011121000000104",
+    "displayname": "Oestrone (E1)",
+    "synonyms": "Estrone Estrogen",
     "score": 0.1
   }
 ]

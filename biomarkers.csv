@@ -13,7 +13,7 @@ sctid,displayname,synonyms,score
 997161000000108,Testosterone (T),,
 1023211000000109,Prolactin,,
 1003671000000109,Haemoglobin A1c (HbA1c),Hemoglobin A1c blood sugar glucose,
-997131000000103,Estriol (E3),Estrogen,0.1
+997131000000103,Oestriol (E3),Estriol Estrogen,0.1
 993411000000108,Folate,,
 1016961000000104,Free Triiodothyronine (T3),Thyroid,
 1016971000000106,Free Thyroxine (T4),Thyroid,
@@ -39,3 +39,4 @@ sctid,displayname,synonyms,score
 1028751000000107,Cortisol (9am),,
 1009061000000108,Uric acid,,
 1001371000000100,C-Reactive Protein (CRP),,
+1011121000000104,Oestrone (E1),Estrone Estrogen,0.1
