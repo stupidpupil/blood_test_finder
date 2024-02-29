@@ -244,5 +244,11 @@
     "displayname": "Oestrone (E1)",
     "synonyms": "Estrone Estrogen",
     "score": 0.1
+  },
+  {
+    "sctid": "997151000000105",
+    "displayname": "Progesterone",
+    "synonyms": "P4",
+    "score": 0.1
   }
 ]
