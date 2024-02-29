@@ -202,6 +202,7 @@ resolve = function(){
   //console.log(products)
 
   var result
+  var model
 
   results = []
 
@@ -220,12 +221,36 @@ resolve = function(){
     First attempt, we just try to find the cheapest
   */
 
-  var model = lp_model_for_biomarkers(chosen_biomarkers, {require_venous: require_venous, forbidden_provider_urls: forbidden_provider_urls})
+  model = lp_model_for_biomarkers(chosen_biomarkers, {require_venous: require_venous, forbidden_provider_urls: forbidden_provider_urls})
   result = solver.Solve(model)
   result.suggested_test_handles = suggested_test_handles_for_result(result)
 
   if(result.feasible && !find_matching_result(result)){
     results.push(result)
+  }
+
+  /* Marginal costs for each biomarker */
+  marginal_costs = []
+
+  if(results[0]){
+
+    var base_cost_pence = results[0].suggested_test_handles.map(i => products[i]).
+        map(prod => prod.price_pence).
+        reduce((a,b) => a+b, 0)
+
+    chosen_biomarkers.forEach(function(c){
+      var remaining_biomarkers = chosen_biomarkers.filter((x) => x != c)
+      model = lp_model_for_biomarkers(remaining_biomarkers, {require_venous: require_venous, forbidden_provider_urls: forbidden_provider_urls})
+      var result_without_biomarker = solver.Solve(model)
+      result_without_biomarker.suggested_test_handles = suggested_test_handles_for_result(result_without_biomarker)
+
+      var cost_without_biomarkers = result_without_biomarker.suggested_test_handles.
+          map(i => products[i]).map(prod => prod.price_pence).
+          reduce((a,b) => a+b, 0)
+
+
+      marginal_costs.push({biomarker: c, result: result_without_biomarker, marginal_cost_pence: base_cost_pence - cost_without_biomarkers})
+    })
   }
 
 
