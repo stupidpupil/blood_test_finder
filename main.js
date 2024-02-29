@@ -410,7 +410,7 @@ function load_exchange_url(exchange_url) {
 
 
 function load_biomarkers() {
-  fetch("biomarkers.json")
+  fetch("biomarkers.json?2024-02-29")
     .then((response) => response.json())
     .then(function(data){
       
