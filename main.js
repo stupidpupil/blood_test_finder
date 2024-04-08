@@ -188,7 +188,7 @@ resolve = function(){
   var forbidden_provider_urls = providers.filter(prov => !($("#providers-select").val().includes(prov.url))).map(prov => prov.url)
 
   //HACK - Add and remove Forth Bespoke tests
-  var forth_bespoke_provider_url = "https://shop.forthwithlife.co.uk/bespoke-test/0"
+  var forth_bespoke_provider_url = "https://shop.forthwithlife.co.uk/bespoke-test/"
   products = products.filter((p) => p.provider_url != forth_bespoke_provider_url)
 
   if(supported_provider_urls.includes(forth_bespoke_provider_url)){
