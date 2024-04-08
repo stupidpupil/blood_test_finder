@@ -135,7 +135,7 @@ $(function(){
 
       add_provider({
         name: "Forth Bespoke",
-        url: "https://shop.forthwithlife.co.uk/bespoke-test/0"
+        url: "https://shop.forthwithlife.co.uk/bespoke-test/"
       })
 
       resolve()
