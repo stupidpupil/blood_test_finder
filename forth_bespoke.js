@@ -93,7 +93,7 @@ function forth_bespoke_tests_for_biomarkers(chosen_biomarkers){
     // Not all building blocks can be used with every method
     var bespoke_test = {
       name: "Forth Bespoke (with " + building_blocks.map(bb => bb.name).reduce((a,b) => a+", " +b) + ")",
-      url: "https://shop.forthwithlife.co.uk/bespoke-test/0",
+      url: "https://shop.forthwithlife.co.uk/bespoke-test/0/",
       provider_url: "https://shop.forthwithlife.co.uk/bespoke-test/",
       price_pence: forth_bespoke_data.kit_price_pence + building_blocks.map(bb => bb.price_pence).reduce((a,b) => a+b, 0),
       biomarkers: building_blocks.map(bb => bb.biomarkers).reduce((a,b) => a.concat(b), [])
