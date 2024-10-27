@@ -473,6 +473,7 @@ $(function(){
   load_exchange_url("https://stupidpupil.github.io/medichecks_scraper/exchange.json")
   load_exchange_url("https://stupidpupil.github.io/blue_horizon_scraper/exchange.json")
   load_exchange_url("https://stupidpupil.github.io/randox_scraper/exchange.json")
+  load_exchange_url("https://stupidpupil.github.io/sapphic_bison_scraper/exchange.json")
 
   $("#biomarkers-select").on("change", resolve)
   $("#require-venous-checkbox").on("change", resolve)
